@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot name="panda_gripper_node" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:arg name="panda_mesh_dir" default="./panda/meshes/" />
+
+    <xacro:include
+        filename="$(find my_franka_description)/urdf/panda/panda_with_gripper.urdf.xacro" />
+    <xacro:panda_arm mesh_dir="$(arg panda_mesh_dir)" />
+
+    <link name="world" />
+    <joint name="world_joint" type="fixed">
+        <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+        <parent link="world" />
+        <child link="panda_link0" />
+    </joint>
+
+    <link name="wrist"/>
+    <joint name="wrist_joint" type="fixed">
+        <origin
+            xyz="0 0 0"
+            rpy="0 -${pi/2} ${-pi/2}" />
+        <parent link="panda_hand" />
+        <child link="wrist" />
+    </joint>
+
+    <!-- nodes -->
+
+    <link name="panda_node1_link" />
+    <joint name="panda_node1" type="fixed">
+        <parent link="panda_link1" />
+        <child link="panda_node1_link" />
+        <origin xyz="0 0.05 0" rpy="0 0 0" />
+    </joint>
+    <link name="panda_node2_link" />
+    <joint name="panda_node2" type="fixed">
+        <parent link="panda_link2" />
+        <child link="panda_node2_link" />
+        <origin xyz="0 -0.15 0" rpy="0 0 0" />
+    </joint>
+    <link name="panda_node3_link" />
+    <joint name="panda_node3" type="fixed">
+        <parent link="panda_link3" />
+        <child link="panda_node3_link" />
+        <origin xyz="0.075 0.05 0" rpy="0 0 0" />
+    </joint>
+    <link name="panda_node4_link" />
+    <joint name="panda_node4" type="fixed">
+        <parent link="panda_link4" />
+        <child link="panda_node4_link" />
+        <origin xyz="-0.09 0.1 0" rpy="0 0 0" />
+    </joint>
+    <link name="panda_node5_link" />
+    <joint name="panda_node5" type="fixed">
+        <parent link="panda_link5" />
+        <child link="panda_node5_link" />
+        <origin xyz="0 0.075 0" rpy="0 0 0" />
+    </joint>
+    <link name="panda_node6_link" />
+    <joint name="panda_node6" type="fixed">
+        <parent link="panda_link6" />
+        <child link="panda_node6_link" />
+        <origin xyz="0.075 0 0" rpy="0 0 0" />
+    </joint>
+
+</robot>

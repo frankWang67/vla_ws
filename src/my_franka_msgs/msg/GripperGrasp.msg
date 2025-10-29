@@ -1,0 +1,3 @@
+float64 width # [m]
+float64 speed # [m/s]
+float64 force # [N]
