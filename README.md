@@ -6,6 +6,7 @@ This is my workspace for VLA experiments.
 
 ```bash
 git clone https://github.com/frankWang67/vla_ws.git
+cd vla_ws
 colcon build --symlink-install
 ```
 
