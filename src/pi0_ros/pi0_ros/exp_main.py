@@ -113,8 +113,6 @@ class VlaExpMain:
             node=self.node,
         )
 
-        self.gripper_open = self.robot_control.env.curr_joint_pos[-1] < 0.4
-
         # self.ext_cam_sub = Subscriber(self.node, RosImage, EXT_CAM_TOPIC)
         # self.wst_cam_sub = Subscriber(self.node, RosImage, WST_CAM_TOPIC)
         # self.eef_pose_sub = Subscriber(self.node, PoseStamped, EEF_POSE_TOPIC)
